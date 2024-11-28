@@ -154,7 +154,7 @@ export const generateModalBody = async (el: HTMLElement, program: Program) => {
         const sIndex = resolveCurrentStoryIndex(el, 'noMultiStories')
         modalBody = addMediaToBody(modalBody, mediaInfo.reels_media[0].items[sIndex], sIndex, userName, program)
     } else {
-        processMediaInfo(mediaInfo, (media, index) => {
+        processMediaInfo(mediaInfo, (media, index, _count) => {
             modalBody = addMediaToBody(modalBody, media, index, userName, program)
         })
     }
@@ -179,7 +179,7 @@ export async function generateModalBodyHelper(el: HTMLElement, mediaInfo, userNa
         modalBody = addMediaToBody(modalBody, mediaInfo.reels_media[0].items[itemIndex], itemIndex, userName, program)
         itemCount = 1 // Da nur ein Element verarbeitet wird
     } else {
-        itemCount = processMediaInfo(mediaInfo, (media, index) => {
+        processMediaInfo(mediaInfo, (media, index, _count) => {
             modalBody = addMediaToBody(modalBody, media, index, userName, program)
         })
     }
@@ -241,6 +241,10 @@ export const getElementInViewPercentage = (el: HTMLElement): number => {
 export const getFormattedFilenameAndUrl = (media, userName: string, template: string, index: number) => {
     let placeholders = {}
 
+    if (media && typeof media === "object" && media.height && media.width && media.url) {
+        return { formattedFilename: `${userName}.jpg`, url: media.url }
+    }
+
     if (typeof media === "string") {
         const date = new Date()
         placeholders = {
@@ -277,18 +281,24 @@ export const getIGUsername = (url: string): string => {
 }
 export const getImgOrVideoUrl = (item: Record<string, any>) => {
     if (item.items) {
-        if ("video_versions" in item) {
-            return { extension: "mp4", url: item.items[0].video_versions[0].url }
+        if ("video_versions" in item && item.items[0]?.video_versions?.[0]?.url) {
+            return { extension: "mp4", url: item.items[0].video_versions[0].url };
+        } else if (item.items[0]?.image_versions2?.candidates?.[0]?.url) {
+            return { extension: "jpg", url: item.items[0].image_versions2.candidates[0].url };
         } else {
-            return { extension: "jpg", url: item.items[0].image_versions2.candidates[0].url }
+            console.error('Error: No valid video or image URL found in item.items[0]');
+            return null; // Or handle the error appropriately
         }
     }
-    if ("video_versions" in item) {
-        return { extension: "mp4", url: item.video_versions[0].url }
+    if ("video_versions" in item && item.video_versions?.[0]?.url) {
+        return { extension: "mp4", url: item.video_versions[0].url };
+    } else if (item.image_versions2?.candidates?.[0]?.url) {
+        return { extension: "jpg", url: item.image_versions2.candidates[0].url };
     } else {
-        return { extension: "jpg", url: item.image_versions2.candidates[0].url }
+        console.error('Error: No valid video or image URL found');
+        return null; // Or handle the error appropriately
     }
-}
+};
 export const getMediaElement = (mediaType, url, storiesMuted: boolean) => {
     return mediaType === MediaType.Video
         ? `<video style="background:black;" height="450" src="${url}" controls preload="metadata"${storiesMuted ? " muted" : ""}></video>`
@@ -306,22 +316,27 @@ export const getMediaInfo = async (el: HTMLElement, postId: string, userId: stri
         return await fetchDataFromApi({ type: 'getMediaFromInfo', articleNode: el });
     }
 }
-export const processMediaInfo = (mediaInfo: any, callback: any): number => {
+export const processMediaInfo = (mediaInfo: any, callback: any) => {
+    let count = 0;
+
     if (mediaInfo.reels_media?.[0]?.items) {
-        mediaInfo.reels_media[0].items.forEach(callback)
-        return mediaInfo.reels_media[0].items.length
+        count = mediaInfo.reels_media[0].items.length;
+        mediaInfo.reels_media[0].items.forEach((media, index) => {
+            callback(media, index, count); // Pass the count to the callback
+        });
     } else if (mediaInfo.items?.[0]?.carousel_media) {
-        mediaInfo.items[0].carousel_media.forEach(callback)
-        return mediaInfo.items[0].carousel_media.length
+        count = mediaInfo.items[0].carousel_media.length;
+        mediaInfo.items[0].carousel_media.forEach((media, index) => {
+            callback(media, index, count); // Pass the count to the callback
+        });
     } else if (mediaInfo.items?.[0]) {
-        callback(mediaInfo.items[0], 0)
-        return 1
-    } else if (mediaInfo.user?.hd_profile_pic_url_info.url) {
-        callback(mediaInfo.user.hd_profile_pic_url_info, 0)
-        return 1
+        count = 1;
+        callback(mediaInfo.items[0], 0, count); // Single item case
+    } else if (mediaInfo.user?.hd_profile_pic_url_info?.url) {
+        count = 1;
+        callback(mediaInfo.user.hd_profile_pic_url_info, 0, count); // Profile picture case
     }
-    return 0
-}
+};
 export const removeStyleTagsWithIDs = (idsToRemove: string[]) => {
     document.querySelectorAll("style[id]").forEach(styleTag => {
         if (idsToRemove.includes(styleTag.id)) {

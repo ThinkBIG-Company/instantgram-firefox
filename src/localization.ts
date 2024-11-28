@@ -1,7 +1,7 @@
 export default {
     "langs": {
         "en-US": {
-            "helpers.localizeDefaultLang": "[instantgram-light] set language: ${LANG_DEFAULT} \n For more information about available languages please check http://thinkbig-company.github.io/instantgram-light",
+            "helpers.localizeDefaultLang": "[instantgram-light] set language: ${LANG_DEFAULT} \n For more information about available languages please check http://saschaheim.github.io/instantgram-light",
             "alertWorksOnlyOn": "Works only on instagram.com",
             "alertNotFound": "Did you open any Instagram post? Like for example<br/><div style='text-align:center'><a style='color:black' href='https://www.instagram.com/p/CIGrv1VMBkS/' target='_blank'>https://www.instagram.com/p/CIGrv1VMBkS/</a></div>",
             "modalSettingsTitle": "Settings",
@@ -25,12 +25,12 @@ export default {
             "save": "Save",
             "saved": "Saved",
             "close": "Close",
-            "consoleWarnOutdatedInfo": "[instantgram-light] is outdated. Please check http://thinkbig-company.github.io/instantgram-light for available updates.",
+            "consoleWarnOutdatedInfo": "[instantgram-light] is outdated. Please check http://saschaheim.github.io/instantgram-light for available updates.",
             "consoleWarnOutdatedVersions": "[instantgram-light] Installed version: ${data.version} | New update: ${data.onlineVersion}",
             "ad": "Sponsored"
         },
         "de-DE": {
-            "helpers.localizeDefaultLang": "Ausgewählte Sprache: ${LANG_DEFAULT} \n Weitere Informationen zu den unterstützten Sprachen findest du auf http://thinkbig-company.github.io/instantgram-light",
+            "helpers.localizeDefaultLang": "Ausgewählte Sprache: ${LANG_DEFAULT} \n Weitere Informationen zu den unterstützten Sprachen findest du auf http://saschaheim.github.io/instantgram-light",
             "alertWorksOnlyOn": "Funktioniert nur auf instagram.com",
             "alertNotFound": "Hast du einen Instagram Post geöffnet? Zum Beispiel<br/><div style='text-align:center'><a style='color:black' href='https://www.instagram.com/p/CIGrv1VMBkS/' target='_blank'>https://www.instagram.com/p/CIGrv1VMBkS/</a></div>",
             "modalSettingsTitle": "Einstellungen",
@@ -54,12 +54,12 @@ export default {
             "save": "Speichern",
             "saved": "Gespeichert",
             "close": "Schließen",
-            "consoleWarnOutdatedInfo": "[instantgram-light] ist veraltet. Bitte besuche die Seite http://thinkbig-company.github.io/instantgram-light für ein Update.",
+            "consoleWarnOutdatedInfo": "[instantgram-light] ist veraltet. Bitte besuche die Seite http://saschaheim.github.io/instantgram-light für ein Update.",
             "consoleWarnOutdatedVersions": "[instantgram-light] Installierte Version: ${data.version} | Neue Version: ${data.onlineVersion}",
             "ad": "Anzeige"
         },
         "es-AR": {
-            "helpers.localizeDefaultLang": "[instantgram-light] establecer idioma: ${LANG_DEFAULT} \n Para más información sobre los idiomas disponibles, consulte http://thinkbig-company.github.io/instantgram-light",
+            "helpers.localizeDefaultLang": "[instantgram-light] establecer idioma: ${LANG_DEFAULT} \n Para más información sobre los idiomas disponibles, consulte http://saschaheim.github.io/instantgram-light",
             "alertWorksOnlyOn": "Sólo funciona en instagram.com",
             "alertNotFound": "¿Has abierto algún post de Instagram? Como por ejemplo<br/><div style='text-align:center'><a style='color:black' href='https://www.instagram.com/p/CIGrv1VMBkS/' target='_blank'>https://www.instagram.com/p/CIGrv1VMBkS/</a></div>",
             "modalSettingsTitle": "Ajustes",
@@ -83,12 +83,12 @@ export default {
             "save": "Ahorrar",
             "saved": "Salvado",
             "close": "Cerca",
-            "consoleWarnOutdatedInfo": "[instantgram-light] es obsoleto. Consulte en http://thinkbig-company.github.io/instantgram-light las actualizaciones disponibles.",
+            "consoleWarnOutdatedInfo": "[instantgram-light] es obsoleto. Consulte en http://saschaheim.github.io/instantgram-light las actualizaciones disponibles.",
             "consoleWarnOutdatedVersions": "[instantgram-light] Versión instalada: ${data.version} | Nueva actualización: ${data.onlineVersion}",
             "ad": "Publicidad"
         },
         "pt-BR": {
-            "helpers.localizeDefaultLang": "[instantgram-light] idioma configurado: ${LANG_DEFAULT} \npara mais informações sobre os idiomas suportados, acesse http://thinkbig-company.github.io/instantgram-light",
+            "helpers.localizeDefaultLang": "[instantgram-light] idioma configurado: ${LANG_DEFAULT} \npara mais informações sobre os idiomas suportados, acesse http://saschaheim.github.io/instantgram-light",
             "alertWorksOnlyOn": "[instantgram-light] somente funciona no instagram.com",
             "alertNotFound": "ops, você está em algum post do instagram? ex:<br/><div style='text-align:center'><a style='color:black' href='https://www.instagram.com/p/CIGrv1VMBkS/' target='_blank'>https://www.instagram.com/p/CIGrv1VMBkS/</a></div>",
             "modalSettingsTitle": "Configurações",
@@ -112,7 +112,7 @@ export default {
             "save": "Salvar",
             "saved": "Salvo em",
             "close": "Fechar",
-            "consoleWarnOutdatedInfo": "[instantgram-light] está desatualizado. Acesse http://thinkbig-company.github.io/instantgram-light para atualizar",
+            "consoleWarnOutdatedInfo": "[instantgram-light] está desatualizado. Acesse http://saschaheim.github.io/instantgram-light para atualizar",
             "consoleWarnOutdatedVersions": "[instantgram-light] versão local: ${data.version} | nova versão: ${data.onlineVersion}",
             "ad": "Patrocinado"
         }

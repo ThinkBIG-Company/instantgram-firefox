@@ -1,5 +1,5 @@
 instantgram-light
-https://github.com/ThinkBIG-Company/instantgram-light
+https://github.com/saschaheim/instantgram-light
 
 The MIT License (MIT)
 

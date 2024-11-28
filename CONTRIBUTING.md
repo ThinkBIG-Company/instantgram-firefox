@@ -37,4 +37,4 @@ for translate website:
 
 That's all! Thanks =)
 
-[1]:https://github.com/ThinkBIG-Company/instantgram-light/issues/new
+[1]:https://github.com/saschaheim/instantgram-light/issues/new

@@ -4,7 +4,7 @@
 ![badge](https://img.shields.io/badge/for-instagram-yellow.svg?style=flat-square)
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
 
-[Versão em Português =)](http://thinkbig-company.github.io/instantgram-light/lang/pt-br)
+[Versão em Português =)](http://saschaheim.github.io/instantgram-light/lang/pt-br)
 
 [instantgram-light] is a bookmarklet with the purpose of downloading Instagram images. It is tiny, simple, and doesn't require extensions or downloads. Just access [this link][1] and drag the [instantgram] button to the bookmark bar of your browser, navigate to instagram.com (web), open an Instagram post (photo) and click on the bookmarklet. That's all it takes!
 
@@ -58,4 +58,4 @@ Add support for reels feed.
 - v2023.05.13 - [instangram-light] Light edition without modal etc. to keep the 65kb bookmarklet size limit.
 
 
-[1]:http://thinkbig-company.github.io/instantgram-light/
+[1]:http://saschaheim.github.io/instantgram-light/

@@ -43,9 +43,9 @@ if (DEVELOPMENT) {
 const runApp = async () => {
     const scanner = new MediaScanner()
     scanner.execute(program)
-    if (!DEVELOPMENT) {
-        const updater = new VersionUpdater(program)
-        await updater.check(VERSION)
-    }
+    // if (!DEVELOPMENT) {
+    //     const updater = new VersionUpdater(program)
+    //     await updater.check(VERSION)
+    // }
 }
 runApp()
